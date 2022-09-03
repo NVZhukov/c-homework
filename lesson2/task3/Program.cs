@@ -32,5 +32,5 @@
 }
 catch
 {
-    Console.WriteLine("Введите корректные данные!");
+    Console.WriteLine("Введите корректные данные !");
 }
