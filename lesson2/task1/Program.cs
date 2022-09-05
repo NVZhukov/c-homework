@@ -1,4 +1,6 @@
-﻿void secondDigit()
+﻿//Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+
+void secondDigit()
 {
     Console.WriteLine("Введите целое трехзначное число");
     int x = Convert.ToInt32(Console.ReadLine());
