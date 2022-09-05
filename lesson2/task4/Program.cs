@@ -25,7 +25,7 @@ try
     }
     else if (x > 9 && x < 100)
     {
-        int firstDigit = (int)(x / Math.Pow(10, k));
+        int firstDigit = (int)(x / 10);
         Console.WriteLine($"Нужное число {firstDigit}");
     }
     else
