@@ -11,13 +11,11 @@ int[] getArr(int num1)
         count++;
     }
 
-    int k = count;
+    int[] array = new int[count];
 
-    int[] array = new int[k];
-
-    for (int i = 0; i < k; i++)
+    for (int i = 0; i < count; i++)
     {
-        array[i] = (int)((x % Math.Pow(10, (k - i))) / Math.Pow(10, k - 1 - i));
+        array[i] = (int)((x % Math.Pow(10, (count - i))) / Math.Pow(10, count - 1 - i));
     }
     return array;
 }
