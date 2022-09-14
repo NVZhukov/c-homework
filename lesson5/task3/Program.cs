@@ -1,0 +1,68 @@
+﻿// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] FillArray(int size)
+{
+    double[] mas = new double[size];
+    for (int i = 0; i < mas.Length; i++)
+    {
+        mas[i] = Math.Round(new Random().NextDouble() * 100, 2);
+    }
+    return mas;
+}
+
+void PrintArray(double[] mas)
+{
+    Console.Write("[");
+    for (int i = 0; i < mas.Length - 1; i++)
+    {
+        Console.Write(mas[i] + "; ");
+    }
+    Console.WriteLine(mas[mas.Length - 1] + "]");
+}
+
+// double MaxMinDiff(double[] array)
+// {
+//     double min = array[0];
+//     double max = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (min > array[i]) min = array[i];
+//     }
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (max < array[i]) max = array[i];
+//     }
+//     return Math.Round(max - min, 2);
+// }
+
+double[] MaxMinDiff(double[] array)
+{
+    double[] diff = new double[3];
+    double min = array[0];
+    double max = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (min > array[i])
+        {
+            min = array[i];
+            diff[0] = min;
+        }
+    }
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (max < array[i])
+        {
+            max = array[i];
+            diff[1] = max;
+        }
+    }
+    diff[2] = Math.Round(max - min, 2);
+    return diff;
+}
+
+System.Console.WriteLine("Введите размерность массива");
+int k = Convert.ToInt32(Console.ReadLine());
+double[] array = FillArray(k);
+PrintArray(array);
+double[] mas = MaxMinDiff(array);
+Console.WriteLine($"Разница между максимальным ({mas[1]}) и минимальным ({mas[0]}) элементами массива = {mas[2]}");
