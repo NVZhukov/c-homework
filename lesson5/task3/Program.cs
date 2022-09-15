@@ -23,7 +23,7 @@ void PrintArray(double[] mas)
 double[] MaxMinDiff(double[] array)
 {
     double[] diff = new double[3];
-    double min = array[0];
+    double min = 100;
     double max = 0;
     for (int i = 0; i < array.Length; i++)
     {
