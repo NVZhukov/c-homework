@@ -1,17 +1,5 @@
-﻿// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-
-void PrintArray(int[,] mas)
-{
-    for (int i = 0; i < mas.GetLength(0); i++)
-    {
-        Console.Write("[");
-        for (int j = 0; j < mas.GetLength(1); j++)
-        {
-            Console.Write("{0,3}", mas[i, j]);
-        }
-        Console.WriteLine("]");
-    }
-}
+﻿// Задайте прямоугольный двумерный массив.
+// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
 int[,] FillMas(int n, int m)
 {
@@ -26,16 +14,29 @@ int[,] FillMas(int n, int m)
     return mas;
 }
 
-int RowWithMinSum(int[,] matr)
+void PrintArray(int[,] mas)
+{
+    for (int i = 0; i < mas.GetLength(0); i++)
+    {
+        Console.Write("[");
+        for (int j = 0; j < mas.GetLength(1); j++)
+        {
+            Console.Write("{0,3}", mas[i, j]);
+        }
+        Console.WriteLine("]");
+    }
+}
+
+int RowWithMinSum(int[,] array)
 {
     int sum = 0;
     int row = 0;
-    int[] mas = new int[matr.GetLength(0)];
-    for (int i = 0; i < matr.GetLength(0); i++)
+    int[] mas = new int[array.GetLength(0)];
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            sum += matr[i, j];
+            sum += array[i, j];
             mas[i] = sum;
         }
         sum = 0;
@@ -43,10 +44,11 @@ int RowWithMinSum(int[,] matr)
     for (int l = 1; l < mas.Length; l++)
     {
         int min = mas[0];
-        if (min > mas[l])
+        if (mas[l] < min)
         {
             min = mas[l];
-            row = l;
+            row = l + 1;                // Для удобства ориентирования по строкам
+            break;
         }
     }
     return row;
@@ -58,9 +60,10 @@ try
     int n = Convert.ToInt32(Console.ReadLine());
     System.Console.Write("Введите количество столбцов m = ");
     int m = Convert.ToInt32(Console.ReadLine());
+
     int[,] newArray = FillMas(n, m);
     PrintArray(newArray);
-    Console.Write($"Минимальная сумма элементов в {RowWithMinSum(newArray)} строке");
+    Console.WriteLine($"Наименьшая сумма элементов в {RowWithMinSum(newArray)} строке");
 }
 catch
 {

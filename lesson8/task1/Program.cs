@@ -26,24 +26,24 @@ int[,] FillMas(int n, int m)
     return mas;
 }
 
-int[,] SortedRowMatr(int[,] arr)
+int[,] SortedMatr(int[,] array)
 {
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < arr.GetLength(1) - 1; j++)
+        for (int l = 0; l < array.GetLength(1) - 1; l++)
         {
-            for (int l = j + 1; l < arr.GetLength(1); l++)
+            for (int j = l + 1; j < array.GetLength(1); j++)
             {
-                if (arr[i, j] < arr[i, l])
+                if (array[i, l] < array[i, j])
                 {
-                    int temp = arr[i, j];
-                    arr[i, j] = arr[i, l];
-                    arr[i, l] = temp;
+                    int temp = array[i, l];
+                    array[i, l] = array[i, j];
+                    array[i, j] = temp;
                 }
             }
         }
     }
-    return arr;
+    return array;
 }
 
 try
@@ -52,10 +52,11 @@ try
     int n = Convert.ToInt32(Console.ReadLine());
     System.Console.Write("Введите количество столбцов m = ");
     int m = Convert.ToInt32(Console.ReadLine());
-    int[,] newArray = FillMas(n,m);
+
+    int[,] newArray = FillMas(n, m);
     PrintArray(newArray);
-    Console.WriteLine();
-    PrintArray(SortedRowMatr(newArray));
+    System.Console.WriteLine();
+    PrintArray(SortedMatr(newArray));
 }
 catch
 {
