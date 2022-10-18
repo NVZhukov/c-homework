@@ -25,7 +25,7 @@ void PrintArray(int[] mas)
 int[] MaxMinAverage(int[] array)
 {
     int[] diff = new int[5];
-    int min = 100;
+    int min = array[0];
     int max = 0;
     int minIndex = 0;
     int maxIndex = 0;
